@@ -10,12 +10,12 @@ class ListItem extends Component {
   render() {
     const{todoId, todo} = this.props;
     return (
-      <div key = "toDoName" className = "ListItem">
+      <div key = "toDoName">
         <h4>
-          {todo.title}
-          <span onClick={() => this.handleComplete(todoId)}>
+          <span onClick={() => this.handleComplete(todoId)} className = "ListItem">
+            {todo.title}
             <i className = "DoneButton">Done</i>
-          </span>
+            </span>
           </h4>
        </div>
         );

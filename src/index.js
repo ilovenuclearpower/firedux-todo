@@ -12,7 +12,7 @@ const store = configureStore ( {reducer: reducers} )
 
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <App className = "Global" />
     </Provider>,
     document.getElementById('root')
   );

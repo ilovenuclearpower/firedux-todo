@@ -38,7 +38,9 @@ renderForm = () => {
               id="toDoNext"
               type="text"
               />
-            <label htmlFor="toDoNext">What Next?</label>
+            <div>
+              <label htmlFor="toDoNext">What Next?</label>
+            </div>
           </div>
         </form>
       </div>
@@ -71,7 +73,7 @@ componentDidMount() {
 render() {
   const {showForm} = this.state;
   return (
-    <div>
+    <div className = "List">
       <div>
       {this.renderForm()}
       {this.renderToDo()}
