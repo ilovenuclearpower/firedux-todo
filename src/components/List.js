@@ -50,6 +50,7 @@ renderToDo() {
   console.log("Rendering todos");
   const {data} = this.props;
   const toDos = _.map(data, (value, key) => {
+    console.log(value, key);
     return <ListItem key={key} todoId={key} todo = {value} />;
   });
   if(!_.isEmpty(toDos)) {
@@ -90,8 +91,8 @@ render() {
 }
 const mapStateToProps = ({data}) => {
   return (
-    data
+    {data}
   )
 }
 
-export default connect(mapStateToProps, actions) (List);
+export default connect(mapStateToProps, actions)(List);
