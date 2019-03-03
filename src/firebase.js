@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
-import {config} from './config';
+import Config from './config.js';
 
-firebase.initializeApp(config);
+firebase.initializeApp(Config);
 const databaseRef = firebase.database().ref();
 export const todosRef = databaseRef.child('todos')
