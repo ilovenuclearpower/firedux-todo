@@ -3,10 +3,14 @@ import {connect} from 'react-redux';
 import {completeToDo} from '../actions';
 
 class ListItem extends Component {
+  //Event handler that completes our todo.
+  //Removing it from the database.
   handleComplete = () => {
     const {completeToDo, todoId} = this.props;
     completeToDo(todoId);
   };
+  //Renders our todo items, using props passed in from the
+  //upstream map function to render the title.
   render() {
     const{todoId, todo} = this.props;
     return (
@@ -21,4 +25,6 @@ class ListItem extends Component {
         );
   }
 }
+
+//Adds our completeToDo action to this component.
 export default connect(null, {completeToDo}) (ListItem);

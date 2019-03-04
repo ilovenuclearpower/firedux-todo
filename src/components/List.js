@@ -10,10 +10,13 @@ class List extends Component {
     formValue: ""
   };
 
+//Updates formvalue when inputs change - submission
+//calls the formSubmit handler.
 inputChange = e => {
   this.setState({formValue: e.target.value});
 };
 
+//Event handler for form submission.
 formSubmit = e => {
   const {formValue} = this.state;
   const {addTodo} = this.props;
@@ -22,6 +25,7 @@ formSubmit = e => {
   this.setState({formValue: ""});
 };
 
+//Renders our input forms.
 renderForm = () => {
   const {showForm, formValue} = this.state;
   if (showForm) {
@@ -48,15 +52,15 @@ renderForm = () => {
   }
 };
 
+//Function maps over props (which are todos loaded in from State
+//Then outputs a ListItem component passing in those values as props.
 renderToDo() {
-  console.log("Rendering todos");
   const {data} = this.props;
   const toDos = _.map(data, (value, key) => {
     console.log(value, key);
     return <ListItem key={key} todoId={key} todo = {value} />;
   });
   if(!_.isEmpty(toDos)) {
-    console.log("Have todos to display!");
     return toDos;
   }
   else return (
@@ -66,6 +70,8 @@ renderToDo() {
   );
 }
 
+//Runs our fetch method that calls the todos down from the
+//db instance and loads them into state.
 componentDidMount() {
   this.props.fetchToDos();
 }
@@ -91,10 +97,13 @@ render() {
   );
 }
 }
+
+//Maps over every element in state.data and loads it into
+//this.props.data.
 const mapStateToProps = ({data}) => {
   return (
     {data}
   )
 }
-
+//Connects our mapstatetoprops and actions to the List component.
 export default connect(mapStateToProps, actions)(List);
