@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Firebase Configuration
+
+The file firebase.js imports from config.js.
+configplaceholder.js is a placeholder for this file.
+If you are deploying this code to production you will need
+- A valid Firebase Real Time Database instance
+- To replace the inner block of the config var
+  with your Google Firebase Real Time database
+  instance variables.
+
 ## Available Scripts
 
 In the project directory, you can run:
